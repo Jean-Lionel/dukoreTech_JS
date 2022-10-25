@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DUKORE TECH</title>
+    </head>
+
+    <body>
+        <div>
+            <input type="number" placeholder="Number 1" id="number1"> <br>
+            <input type="number" placeholder="Number 2" id="number2"> <br>
+            <select name="" id="signe">
+                <option value=""></option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">X</option>
+                <option value="/">/</option>
+            </select>
+            <button onclick="showInput()">Show Input</button>
+        </div>
+        <div>
+            <h1 id="screen"></h1>
+        </div>
+        <script>
+            function showInput() {
+                const screen = document.getElementById("screen");
+                const number1 = document.getElementById("number1").value * 1;
+                const number2 = document.getElementById("number2").value * 1;
+                const signe = document.getElementById("signe").value;
+                screen.innerHTML = calculate(number1, number2, signe);
+            }
+
+            function calculate(a, b, sign) {
+                switch (sign) {
+                    case '+': return a + b;
+                    case '-': return a - b;
+                    case '*': return a * b;
+                    case '/': return b != 0 ? a / b : "Math erreur";
+                    default: return "Inconue "
+                }
+            }
+        </script>
+    </body>
+
+</html>
