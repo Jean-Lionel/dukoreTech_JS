@@ -10,8 +10,60 @@
 </head>
 
 <body>
-
+    <div>
+        <div id="ecran"></div>
+        <div>
+        <input type="number" id="a">
+        <input type="number" id="b">
+        <div>
+        <button onclick="getSign('+')">+</button>
+        <button onclick="getSign('/')">/</button>
+        <button onclick="getSign('*')">X</button>
+        <button onclick="getSign('-')">-</button>
+        <button onclick="clean('c')">Clean</button>
+        </div>
+        <h2 id="resultat"></h2>
+        </div>
+    </div>
     <script>
+    function clean(){
+        document.getElementById("a").value = ""
+        document.getElementById("b").value = ""
+    }
+    function getSign(sign) {
+        const screen = document.getElementById("resultat")
+        let a = document.getElementById("a").value * 1
+        let b = document.getElementById("b").value * 1
+
+        screen.innerHTML = calculate(a,b,sign)
+    }
+    function sum(a,b) {
+        return a + b;
+    }
+    function subtract(a,b) {
+        return a - b;
+    }
+    function multiply(a,b) {
+        return a * b;
+    }
+    function divide(a,b) {
+        return b != 0 ? a / b : "MATH ERROR";
+    }
+
+    function calculate(a,b, sign) {
+        switch (sign) {
+            case '+': return sum(a,b);
+            case '-': return subtract(a,b);
+            case '/': return divide(a,b);
+            case '*': return multiply(a,b);
+            default: return "UNKOWN"
+        }
+    }
+
+    console.log(calculate(12,5,'+') )
+    console.log(calculate(12,5,'-') )
+    console.log(calculate(12,5,'*') )
+    console.log(calculate(12,5,'/') )
     
     </script>
 </body>
